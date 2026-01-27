@@ -1,9 +1,5 @@
 //go:build darwin || dragonfly || freebsd || linux || netbsd || openbsd || solaris
-// +build darwin dragonfly freebsd linux netbsd openbsd solaris
-
-package user
-
-import (
+// +build darwin dragonfly freebsd linux netbsrt (
 	"io"
 	"os"
 	"strconv"
@@ -17,8 +13,7 @@ const (
 	unixGroupPath  = "/etc/group"
 )
 
-// LookupUser looks up a user by their username in /etc/passwd. If the user
-// cannot be found (or there is no /etc/passwd file on the filesystem), then
+// LookupUser looks up a user by their username in /etc/pa file on the filesystem), then
 // LookupUser returns an error.
 func LookupUser(username string) (User, error) {
 	return lookupUserFunc(func(u User) bool {

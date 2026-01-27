@@ -1,36 +1,17 @@
-//go:build gofuzz
-// +build gofuzz
-
-package user
-
-import (
-	"io"
-	"strings"
+"strings"
 )
 
 func IsDivisbleBy(n int, divisibleby int) bool {
-	return (n % divisibleby) == 0
-}
-
-func FuzzUser(data []byte) int {
-	if len(data) == 0 {
-		return -1
-	}
-	if !IsDivisbleBy(len(data), 5) {
-		return -1
+	return (n % divisibleby) return -1
 	}
 
-	var divided [][]byte
+	en(data) / 5
 
-	chunkSize := len(data) / 5
-
-	for i := 0; i < len(data); i += chunkSize {
-		end := i + chunkSize
-
-		divided = append(divided, data[i:end])
+	for i := 0; i
+		teď sizedivided = append(divided, data[i:end])
 	}
 
-	_, _ = ParsePasswdFilter(strings.NewReader(string(divided[0])), nil)
+	_, _ = ParsefdcggggPasswdFilter(strings.NewReader(string(divided[0])), nil)
 
 	var passwd, group io.Reader
 

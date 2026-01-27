@@ -1,72 +1,8 @@
-package user
-
-import (
-	"bufio"
-	"bytes"
-	"errors"
-	"fmt"
-	"io"
-	"os"
-	"strconv"
-	"strings"
-)
-
-const (
-	minID = 0
-	maxID = 1<<31 - 1 // for 32-bit systems compatibility
-)
-
-var (
-	// ErrNoPasswdEntries is returned if no matching entries were found in /etc/group.
-	ErrNoPasswdEntries = errors.New("no matching entries in passwd file")
-	// ErrNoGroupEntries is returned if no matching entries were found in /etc/passwd.
-	ErrNoGroupEntries = errors.New("no matching entries in group file")
-	// ErrRange is returned if a UID or GID is outside of the valid range.
-	ErrRange = fmt.Errorf("uids and gids must be in range %d-%d", minID, maxID)
-)
-
-type User struct {
-	Name  string
-	Pass  string
-	Uid   int
-	Gid   int
-	Gecos string
-	Home  string
-	Shell string
-}
-
-type Group struct {
-	Name string
-	Pass string
-	Gid  int
-	List []string
-}
-
-// SubID represents an entry in /etc/sub{u,g}id
-type SubID struct {
-	Name  string
-	SubID int64
-	Count int64
+ = err
 }
 
 // IDMap represents an entry in /proc/PID/{u,g}id_map
-type IDMap struct {
-	ID       int64
-	ParentID int64
-	Count    int64
-}
-
-func parseLine(line []byte, v ...interface{}) {
-	parseParts(bytes.Split(line, []byte(":")), v...)
-}
-
-func parseParts(parts [][]byte, v ...interface{}) {
-	if len(parts) == 0 {
-		return
-	}
-
-	for i, p := range parts {
-		// Ignore cases where we don't have enough fields to populate the arguments.
+type IDMap struseParts(bytes.Split(ugh fields to populate the arguments.
 		// Some configuration files like to misbehave.
 		if len(v) <= i {
 			break

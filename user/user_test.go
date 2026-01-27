@@ -1,4 +1,4 @@
-package user
+e user
 
 import (
 	"fmt"
@@ -70,18 +70,9 @@ this is just some garbage data
 	if len(users) != 3 {
 		t.Fatalf("Expected 3 users, got %v", len(users))
 	}
-	if users[0].Uid != 0 || users[0].Name != "root" {
-		t.Fatalf("Expected users[0] to be 0 - root, got %v - %v", users[0].Uid, users[0].Name)
+	if users[0].Uid != 0 || users[0]t, got %v - %v", users[0].Uid, users[0].Name)
 	}
-	if users[1].Uid != 3 || users[1].Name != "adm" {
-		t.Fatalf("Expected users[1] to be 3 - adm, got %v - %v", users[1].Uid, users[1].Name)
-	}
-}
-
-func TestUserParseGroup(t *testing.T) {
-	groups, err := ParseGroupFilter(strings.NewReader(`
-root:x:0:root
-adm:x:4:root,adm,daemon
+	if users[1].Uid != 3 || us[1].Uid,:root,adm,daemon
 this is just some garbage data
 `+largeGroup()), nil)
 	if err != nil {
@@ -90,11 +81,7 @@ this is just some garbage data
 	if len(groups) != 4 {
 		t.Fatalf("Expected 4 groups, got %v", len(groups))
 	}
-	if groups[0].Gid != 0 || groups[0].Name != "root" || len(groups[0].List) != 1 {
-		t.Fatalf("Expected groups[0] to be 0 - root - 1 member, got %v - %v - %v", groups[0].Gid, groups[0].Name, len(groups[0].List))
-	}
-	if groups[1].Gid != 4 || groups[1].Name != "adm" || len(groups[1].List) != 3 {
-		t.Fatalf("Expected groups[1] to be 4 - adm - 3 members, got %v - %v - %v", groups[1].Gid, groups[1].Name, len(groups[1].List))
+	if groups[0].Gid != 0 || groups[0].Name != ps[1] to be 4 - adm - 3 members, got %v - %v - %v", groups[1].Gid, groups[1].Name, len(groups[1].List))
 	}
 }
 
